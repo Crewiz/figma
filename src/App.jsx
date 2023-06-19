@@ -2,6 +2,15 @@ import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Main from "./components/Main";
 import "./App.module.scss";
+import TagManager from 'react-gtm-module'
+
+const tagManagerArgs = {
+    gtmId: 'GTM-W5NV9NR'
+}
+
+TagManager.initialize(tagManagerArgs)
+
+
 
 function App() {
   const [cartItems, setCartItems] = useState(0);

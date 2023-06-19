@@ -12,6 +12,19 @@ function Main({ cartItems, increment, decrement, productCount }) {
     setOpenModal(false);
   };
 
+  const handleAddToCart = () => {
+    increment();
+
+    // Google Analytics event
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'add_to_cart',
+      value: 125,
+      currency: 'USD',
+      event_category: 'ecommerce',
+    });
+  };
+
   return (
     <div className={styles.main}>
       {openModal && (
@@ -113,7 +126,9 @@ function Main({ cartItems, increment, decrement, productCount }) {
             <button disabled={productCount === 0} onClick={increment}>+</button>
           </div>
           <div>
-            <button disabled={productCount === 0} onClick={increment} className={styles.cart}>
+            <button disabled={productCount === 0} 
+            onClick={handleAddToCart} 
+            className={styles.cart}>
               <img src="./mainImages/Cart.png" alt="Cart" />
               <h5>Add to Cart</h5>
             </button>

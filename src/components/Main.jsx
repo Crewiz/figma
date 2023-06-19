@@ -23,6 +23,9 @@ function Main({ cartItems, increment, decrement, productCount }) {
       currency: 'USD',
       event_category: 'ecommerce',
     });
+
+    console.log('Add to Cart event pushed to dataLayer:', window.dataLayer); // Add this line
+  
   };
 
   return (
